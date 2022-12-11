@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Soporte (Customer)</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="assets/img/logo.png" rel="icon">
+  <link href="assets/img/logo.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+        <!-- El nombre de la pagina y el logo están aquí -->
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="indexCostumer.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">Help Desk</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div>
+
+
+
+
+  </header>
+
+  <!-- ======= Barra lateral ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="indexCostumer.html">
+          <i class="bi bi-grid"></i>
+          <span>Solicitar Ayuda</span>
+        </a>
+      </li>
+
+
+      <li class="nav-heading">Otros</li>
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-faq.html">
+          <i class="bi bi-question-circle"></i>
+          <span>F.A.Q</span>
+        </a>
+      </li>
+
+    </ul>
+  </aside>
+
+  <main id="main" class="main">
+    <div class="pagetitle">
+      <h1>Solicitar Ticket</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="indexCostumer.html">Inicio</a></li>
+          <li class="breadcrumb-item active">Ticket</li>
+        </ol>
+      </nav>
+    </div>
+
+    <section class="section dashboard">
+      <div class="row">
+
+        <!-- Tamaño de colimnas izquierdas xd -->
+        <div class="col-lg-8">
+          <div class="row">
+
+            <!-- Formulario -->
+            <div class="col-xxl-12 col-xl-12">
+              <div class="card info-card customers-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">Soporte <span>| Ticket de ayuda</span></h5>
+                  <form id="fmr-costumer" method="post" enctype="multipart/form-data">
+                    <div class="row mb-3">
+                      <div class="col-md-8 col-lg-9">
+                        <input name="id_cliente" type="hidden" class="form-control" id="id_cliente" required>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col-md-8 col-lg-9">
+                        <input name="id_incidente" type="hidden" class="form-control" id="id_incidente" required>
+                      </div>
+                    </div>
+                  <div class="row mb-3">
+                      <label for="nombre" class="col-md-4 col-lg-3 col-form-label">Nombre(s)</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="nombre" type="text" class="form-control" id="nombre" required>
+                      </div>
+                  </div>
+                  <div class="row mb-3">
+                      <label for="lastName1" class="col-md-4 col-lg-3 col-form-label">Apellido Paterno</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="lastName1" type="text" class="form-control" id="lastName1" required>
+                      </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="lastName2" class="col-md-4 col-lg-3 col-form-label">Apellido Materno</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="lastName2" type="text" class="form-control" id="lastName2" required>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                      <label for="idTicket" class="col-md-4 col-lg-3 col-form-label">ID del Ticket</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="idTicket" type="text" class="form-control" id="idTicket" required>
+                      </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="articulo" class="col-md-4 col-lg-3 col-form-label">Artículo</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input class="form-control" id="producto" name="producto" type="text" placeholder="Nombre del artículo">
+                    </div>
+                </div>
+                  <div class="row mb-3">
+                      <label for="eMail" class="col-md-4 col-lg-3 col-form-label">Correo</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="eMail" type="email" class="form-control" id="eMail" required>
+                      </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="eMail2" class="col-md-4 col-lg-3 col-form-label">Correo secundario</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="eMail2" type="email" class="form-control" id="eMail2">
+                    </div>
+                </div>
+                  <div class="row mb-3">
+                    <label for="telephone" class="col-md-4 col-lg-3 col-form-label">Número de teléfono</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="telephone" type="text" class="form-control" id="telephone" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="telephone2" class="col-md-4 col-lg-3 col-form-label">Otro número </label>
+                  <div class="col-md-8 col-lg-9">
+                    <input name="telephone2" type="text" class="form-control" id="telephone2">
+                  </div>
+                </div>
+                  
+                  <div class="mb-3 row">
+                    <label for="inputProblem" class="col-md-4 col-lg-3 col-form-label">Tipo de problema</label>
+                    <div class="col-md-8 col-lg-9">
+                        <select id="tipo" class="form-select" aria-label="Default select example">
+                            <option selected>Elige una opción</option>
+                            <option value="1">Reportes</option>
+                            <option value="2">Aclaración de dudas</option>
+                            <option value="3">Soporte técnico</option>
+                            <option value="4">Cambios y devoluciones</option>
+                            <option value="5">Facturación</option>
+                          </select>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="about" class="col-md-4 col-lg-3 col-form-label">Descripción del problema</label>
+                    <div class="col-md-8 col-lg-9">
+                      <textarea name="about" class="form-control" id="about" style="height: 100px">...</textarea>
+                    </div>
+                  </div>
+                  <div class="input-group mb-3">
+                    <input type="file" class="form-control" id="imagen">
+                    <label class="input-group-text" for="inputGroupFile02">Subir</label>
+                  </div>
+                  <button type="submit" class="btn btn-primary allign-right" id="finish">Enviar solicitud</button>
+                </div>
+                <h4><input type="text" class="form-control text-center" name="folio" id="folio" aria-label="Disabled input example" disabled></h4>
+              </form>
+              </div>
+
+              
+            </div><!-- Fin del formulario -->
+
+
+          </div>
+        </div><!-- End Left side columns -->
+
+        <!-- Ajustar el tamaño de la barra de otra información -->
+        <div class="col-lg-4">
+
+          <!-- Links a otras páginas informativas xd -->
+          <div class="card">
+
+            <div class="card-body">
+              <h5 class="card-title">Consultar...</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><a href="#" class="link-primary">Términos y condiciones</a></li>
+                <li class="list-group-item"><a href="#" class="link-primary">Políticas de privacidad</a></li>
+                <li class="list-group-item"><a href="#" class="link-primary">Acerca de nosotros</a></li>
+                
+              </ul>
+
+              </div>
+            </div>
+          </div><!-- End Recent Activity -->
+        </div><!-- End Right side columns -->
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>S D A W</span></strong>. Derechos reservados
+    </div>
+    <div class="credits">
+      Desarrollo de Aplicaciones Web II</a>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/chart.js/chart.min.js"></script>
+  <script src="assets/vendor/echarts/echarts.min.js"></script>
+  <script src="assets/vendor/quill/quill.min.js"></script>
+  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="../Back/service/add_ticket.js"></script>
+
+</body>
+
+</html>
