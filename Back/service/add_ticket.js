@@ -8,7 +8,11 @@ $(document).ready(function(){
         dataType: "html",
         cache: false,
         contentType: false,
-        processData: false
+        processData: false,
+        headers: {
+            "accept": "application/json",
+            "Access-Control-Allow-Origin":"*"
+        }
     })
     .done(function(res){
         console.log(res);
