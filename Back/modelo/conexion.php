@@ -1,9 +1,9 @@
 <?php
 class CONEXION 
 {
-    private $host = "sdawserver.mysql.database.azure.com";
-    private $usuario = "sdawhelpdesk";
-    private $pass = "tikdi2-sohsur-byxdAj";
+    private $host = "v2ray.dosedgames.tk";
+    private $usuario = "Pichardo";
+    private $pass = "pichardo121289";
     private $db = "helpdesk";
 
     private $connection;
