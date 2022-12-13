@@ -4,8 +4,9 @@ $(document).ready(function(){
     var i=0;
     $.ajax({
         url: "https://sdaw-production.up.railway.app/sales/all",
-        type: "post",
-        dataType: "html",
+        type: "get",
+        dataType: "json",
+        crossDomain: true,
         cache: false,
         contentType: false,
         processData: false,
