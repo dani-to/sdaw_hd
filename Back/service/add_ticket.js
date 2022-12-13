@@ -2,37 +2,37 @@ $(document).ready(function(){
     var id_cliente;
     var seguir=0;
     var i=0;
-    $.ajax({
-        url: "https://sdaw-production.up.railway.app/sales/all",
-        type: "get",
-        dataType: "jsonp",
-        crossDomain: true,
-        async: true,
-        cache: false,
-        contentType: false,
-        processData: false,
-        headers: {
-            "accept": "application/json",
-            "Access-Control-Allow-Origin":"*"
-        }
-    })
-    .done(function(res){
-        console.log(res);
-        let TICKET =JSON.parse(res);
-        a= count(res);
-        do{
-            if(TICKET[i].id==$("#idTicket").val()){
-                seguir=1;
-                
-            }else{
-                seguir=0; i++;
+    var settings ={ 
+            'url': "https://sdaw-production.up.railway.app/sales/all",
+            "method": "POST",
+            'dataType': "jsonp",
+            "crossDomain": true,
+            "async": true,
+            "cache": false,
+            "headers": {
+                "accept": "application/json",
+                "Access-Control-Allow-Origin":"*"
             }
-        }while(seguir==0 && a<i);
-    });
+        }
+        $.ajax(settings).done(function(res){
+            console.log(res);
+          /*  
+            a= count(res);
+            do{
+                if(res[i].id==$("#idTicket").val()){
+                    seguir=1;
+                }else{
+                    seguir=0; i++;
+                }
+            }while(seguir==0 && a<i);*/
+        })
+        .fail(function(data){
+            alert("Try again champ!");
+        });
     $("#fmr-costumer").on("submit", function(e){
         var combo = document.getElementById("tipo");
         var selected = combo.options[combo.selectedIndex].text;
-        if(seguir==1 && $("#nombre").val()!='' && $("#lastName1").val()!='' && $("#lastName2").val()!='' && $("#eMail").val()!='' 
+        if($("#nombre").val()!='' && $("#lastName1").val()!='' && $("#lastName2").val()!='' && $("#eMail").val()!='' 
             && $("#telephone").val()!='' && $("#about").val()!='' && selected!='Elige una opción' && $("#about").val()!='...'){
             var formData = new FormData(document.getElementById("fmr-costumer"));
             formData.append("nombre", $("#nombre").val());
