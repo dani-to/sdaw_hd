@@ -7,6 +7,7 @@ $(document).ready(function(){
         type: "get",
         dataType: "jsonp",
         crossDomain: true,
+        async: true,
         cache: false,
         contentType: false,
         processData: false,
