@@ -20,16 +20,16 @@ function logear(){
             })
             .done(function(res){
                 console.log(res);
-                console.log(res.user.id);
                     if(res.user.roles=='Admin'){
                         window.location = "./Front/indexManager.html?nombre="+res.user.name;
                     }else if(res.user.roles=='Empleado'){
                         window.location = "./Front/index.html?nombre="+res.user.name+"&id="+res.user.id;
                     }else{
-                        console.log("Error con recibir datos");
+                        alert("Usuario o contraseña incorrecta");
                     }
             }).fail(function(data){
-            alert("Try again champ!");
+            $("#aviso").html("Usuario o contraseña incorrecta");
+            document.getElementById('aviso').style.color = 'red';
             })
         }else{
             console.log("no sale");

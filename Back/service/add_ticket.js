@@ -2,21 +2,22 @@ $(document).ready(function(){
     var id_cliente;
     var seguir=0;
     var i=0;
-    var settings ={ 
-            'url': "https://sdaw-production.up.railway.app/sales/all",
+    /*var settings ={ 
+            'url': "https://sdaw-production.up.railway.app/sales/show_api/2",
             "method": "POST",
             'dataType': "jsonp",
             "crossDomain": true,
             "async": true,
             "cache": false,
             "headers": {
+                "contentType": "application/json",
                 "accept": "application/json",
                 "Access-Control-Allow-Origin":"*"
             }
         }
         $.ajax(settings).done(function(res){
             console.log(res);
-          /*  
+           
             a= count(res);
             do{
                 if(res[i].id==$("#idTicket").val()){
@@ -24,11 +25,11 @@ $(document).ready(function(){
                 }else{
                     seguir=0; i++;
                 }
-            }while(seguir==0 && a<i);*/
+            }while(seguir==0 && a<i);
         })
         .fail(function(data){
             alert("Try again champ!");
-        });
+        });*/
     $("#fmr-costumer").on("submit", function(e){
         var combo = document.getElementById("tipo");
         var selected = combo.options[combo.selectedIndex].text;

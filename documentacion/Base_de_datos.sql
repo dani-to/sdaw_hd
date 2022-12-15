@@ -2,9 +2,9 @@ CREATE TABLE IF NOT EXISTS helpdesk.empleados (
 id_empleado int(5) NOT NULL AUTO_INCREMENT PRIMARY KEY
 );
 
-CREATE TABLE IF NOT EXISTS helpdesk.ventas (
-id_venta int(5) NOT NULL AUTO_INCREMENT PRIMARY KEY
-);
+CREATE TABLE IF NOT EXISTS helpdesk.ventas(
+id_venta int(5) NOT NULL,
+nombre_producto varchar(50) NOT NULL);
 
 CREATE TABLE IF NOT EXISTS clientes (
 id_clientes int(5) NOT NULL AUTO_INCREMENT PRIMARY KEY,
