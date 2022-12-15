@@ -1,8 +1,14 @@
 $(document).ready(function(){
     let prioridad;
+    var dato = window.location.search;
+    var datoid = new URLSearchParams(dato);
+    var id = datoid.get('id');
+    var nombre = datoid.get('nombre');
     cargaticket();
     solucion();
-    $("#id_empleado").val(1);
+    $("#id_empleado").val(id);
+
+    $("#name").html(nombre);
 });
 
 

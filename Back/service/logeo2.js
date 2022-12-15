@@ -1,5 +1,9 @@
 $(document).ready(function(){
     var roles, id, name;
+    logear();
+});
+
+function logear(){
     $("#login").on("submit", function(e){
         e.preventDefault();
         if($("#correo").val()!='' && $("#pass").val()!=''){
@@ -16,11 +20,11 @@ $(document).ready(function(){
             })
             .done(function(res){
                 console.log(res);
-                console.log(res.user.roles);
+                console.log(res.user.id);
                     if(res.user.roles=='Admin'){
-                        window.location = "./Front/indexManager.html";
+                        window.location = "./Front/indexManager.html?nombre="+res.user.name;
                     }else if(res.user.roles=='Empleado'){
-                        window.location.href = "./Front/index.php?idempleado=${res.user.id}?name=${res.user.name}";
+                        window.location = "./Front/index.html?nombre="+res.user.name+"&id="+res.user.id;
                     }else{
                         console.log("Error con recibir datos");
                     }
@@ -31,4 +35,4 @@ $(document).ready(function(){
             console.log("no sale");
         }
     });
-});
+}

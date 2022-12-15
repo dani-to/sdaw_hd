@@ -65,27 +65,18 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/pp.png" alt="Profile" class="rounded-circle">
-            <span id="name" class="d-none d-md-block dropdown-toggle ps-2">Nombre_main xd</span>
+            <span id="name" class="d-none d-md-block dropdown-toggle ps-2"></span>
           </a>
         <!-- Aquí va la info del dropdown-->
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6>Nombre_submain_xd</h6>
-              <span>más_infoxd</span>
-            </li>
-        <!-- Aquí vans las configs y otras cosas del perfil-->    
-            <li>
-              <hr class="dropdown-divider">
-            </li>
             
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+        <!-- Aquí vans las configs y otras cosas del perfil-->    
+  
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
                 <i class="bi bi-question-circle"></i>
-                <span>Ayudaaaaa</span>
+                <span>Ayuda</span>
               </a>
             </li>
             <li>
@@ -93,7 +84,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="../index.html">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Salir</span>
               </a>
@@ -157,7 +148,7 @@
                 <form id="fmr-employer">
                   <input name="folio" type="hidden" class="form-control" id="folio">
                   <input name="id_incidente" type="hidden" class="form-control" id="id_incidente">
-                  <input name="id_empleado" type="hidden" class="form-control" id="id_empleado">
+                  <input name="id_empleado" type="hidden" class="form-control" id="id_empleado" value="<?php echo $idempleado ?>">
                   <div class="row mb-3">
                       <label for="firstNombre" class="col-md-4 col-lg-3 col-form-label" >Nombre(s)</label>
                       <div class="col-md-8 col-lg-9">
