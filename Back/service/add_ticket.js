@@ -1,12 +1,7 @@
 $(document).ready(function(){
     var id_cliente;
-    $('.telephone').on('input', function () { 
-        this.value = this.value.replace(/[^0-9]/g,'');
-        console.log("entra");
-    });
-    $('.telephone2').on('input', function () { 
-        this.value = this.value.replace(/[^0-9]/g,'');
-    }); 
+    var tel='';
+    var tel2='';
     $("#fmr-costumer").on("submit", function(e){
         var combo = document.getElementById("tipo");
         var selected = combo.options[combo.selectedIndex].text;
@@ -513,6 +508,23 @@ function consultaprod(){
     });
 }
 
-function verificanum(){
-    
+function consultanum(){
+    if($("#telephone").val()==''){
+        $("#telephone").val('');
+    }else{
+        if($("#telephone").val().length<=10){
+            tel=$("#telephone").val();
+        }else{
+            $("#telephone").val(tel);
+        }
+    }
+    if($("#telephone2").val()==''){
+        $("#telephone2").val('');
+    }else{
+        if($("#telephone2").val().length<=10){
+            tel2=$("#telephone2").val();
+        }else{
+            $("#telephone2").val(tel2);
+        }
+    }
 }
