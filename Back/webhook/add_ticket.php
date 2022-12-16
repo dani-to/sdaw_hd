@@ -15,16 +15,16 @@ if( !in_array(strtolower($imageFileType),$valid_extensions) ) {
 if($uploadOk == 0){
    echo 0;
 }else{
-   /* Upload file */
+   if(isset($_FILES['imagen']['name'])){
+    $archivo="false";
+
    if(move_uploaded_file($_FILES['imagen']['tmp_name'],$location)){
       
-   }else{
+   }}else{
    }
 }
 
-/*if(isset($_FILES['imagen']['name'])){
-    $archivo="false";
-}*/
+
 $params=[
     "id_cliente" =>$_POST['id_cliente'],
     "id_incidente" =>$_POST['id_incidente'],

@@ -391,7 +391,7 @@ $(document).ready(function(){
                                                     formData.append("descripcion", $("#about").val());
                                                     formData.append("producto", $("#producto").val());
                                                     var files = $('#imagen')[0].files[0];
-                                                                formData.append('imagen',files);
+                                                    formData.append('imagen',files);
                                                     $.ajax({
                                                         url: "../Back/webhook/add_ticket.php",
                                                         type: "post",
