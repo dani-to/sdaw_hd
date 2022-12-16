@@ -1,6 +1,12 @@
 $(document).ready(function(){
     var id_cliente;
-    
+    $('.telephone').on('input', function () { 
+        this.value = this.value.replace(/[^0-9]/g,'');
+        console.log("entra");
+    });
+    $('.telephone2').on('input', function () { 
+        this.value = this.value.replace(/[^0-9]/g,'');
+    }); 
     $("#fmr-costumer").on("submit", function(e){
         var combo = document.getElementById("tipo");
         var selected = combo.options[combo.selectedIndex].text;
@@ -505,4 +511,8 @@ function consultaprod(){
     .fail(function(data){
         alert("Try again champ!");
     });
+}
+
+function verificanum(){
+    
 }

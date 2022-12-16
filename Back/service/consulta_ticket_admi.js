@@ -28,27 +28,69 @@ function cargaticket(){
             console.log(res); 
                 let TICKET = JSON.parse(res);
                 TICKET.forEach(element => {
-                    if(element.estatus==1){
-                        estatus="SOLUCIONADO";
-                    }else{
-                        estatus="PENDIENTE";
-                    }
                     if(element.nivel_prioridad==0){
-                        prioridad="BAJA";
+                        if(element.estatus==1){
+                            template += `
+                                <tr>
+                                    <td data-label="folio" onclick="cargadatos(${element.folio})">${element.folio}</td>
+                                    <td data-label="tipo">${element.tipo_problema}</td>
+                                    <td data-label="estatus"><span class="badge bg-success">SOLUCIONADO</span></td>
+                                    <td data-label="prioridad"><span class="badge bg-success">BAJA</span></td>
+                                </tr>`;
+                        }else{
+                            template += `
+                                <tr>
+                                    <td data-label="folio" onclick="cargadatos(${element.folio})">${element.folio}</td>
+                                    <td data-label="tipo">${element.tipo_problema}</td>
+                                    <td data-label="estatus"><span class="badge bg-warning">PENDIENTE</span></td>
+                                    <td data-label="prioridad"><span class="badge bg-success">BAJA</span></td>
+                                </tr>`;
+                        }
                     }else if(element.nivel_prioridad==1){
-                        prioridad="MEDIA";
+                        if(element.estatus==1){
+                            template += `
+                                <tr>
+                                    <td data-label="folio" onclick="cargadatos(${element.folio})">${element.folio}</td>
+                                    <td data-label="tipo">${element.tipo_problema}</td>
+                                    <td data-label="estatus"><span class="badge bg-success">SOLUCIONADO</span></td>
+                                    <td data-label="prioridad"><span class="badge bg-warning">MEDIA</span></td>
+                                </tr>`;
+                        }else{
+                            template += `
+                                <tr>
+                                    <td data-label="folio" onclick="cargadatos(${element.folio})">${element.folio}</td>
+                                    <td data-label="tipo">${element.tipo_problema}</td>
+                                    <td data-label="estatus"><span class="badge bg-warning">PENDIENTE</span></td>
+                                    <td data-label="prioridad"><span class="badge bg-warning">MEDIA</span></td>
+                                </tr>`
+                        }
                     }else if(element.nivel_prioridad==2){
-                        prioridad="ALTA";
+                        if(element.estatus==1){
+                            template += `
+                                <tr>
+                                    <td data-label="folio" onclick="cargadatos(${element.folio})">${element.folio}</td>
+                                    <td data-label="tipo">${element.tipo_problema}</td>
+                                    <td data-label="estatus"><span class="badge bg-success">SOLUCIONADO</span></td>
+                                    <td data-label="prioridad"><span class="badge bg-danger">ALTA</span></td>
+                                </tr>`
+                        }else{
+                            template += `
+                                <tr>
+                                    <td data-label="folio" onclick="cargadatos(${element.folio})">${element.folio}</td>
+                                    <td data-label="tipo">${element.tipo_problema}</td>
+                                    <td data-label="estatus"><span class="badge bg-warning">PENDIENTE</span></td>
+                                    <td data-label="prioridad"><span class="badge bg-danger">ALTA</span></td>
+                                </tr>`
+                        }
                     }else{
-                        prioridad="";
+                        template += `
+                                <tr>
+                                    <td data-label="folio" onclick="cargadatos(${element.folio})">${element.folio}</td>
+                                    <td data-label="tipo">${element.tipo_problema}</td>
+                                    <td data-label="estatus"><span class="badge bg-warning">PENDIENTE</span></td>
+                                    <td data-label="prioridad"></td>
+                                </tr>`
                     }
-                    template += `
-                    <tr>
-                        <td data-label="folio" onclick="cargadatos(${element.folio})">${element.folio}</td>
-                        <td data-label="tipo">${element.tipo_problema}</td>
-                        <td data-label="estatus">${estatus}</td>
-                        <td data-label="prioridad">${prioridad}</td>
-                    </tr>`
                 cont++;
                 });
                 $("#tbody_ticket").html(template);
@@ -129,7 +171,7 @@ function solucion(){
             })
         }else{
             console.log("no sale");
-        }
+        }e.preventDefault();
     });
 
 }
