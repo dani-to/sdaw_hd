@@ -4,11 +4,12 @@ $(document).ready(function(){
     var datoid = new URLSearchParams(dato);
     var id = datoid.get('id');
     var nombre = datoid.get('nombre');
+    var imagen = datoid.get('imagen');
     cargaticket();
     solucion();
     $("#id_empleado").val(id);
-
     $("#name").html(nombre);
+    $("#perfil").attr("src",imagen);
 });
 
 

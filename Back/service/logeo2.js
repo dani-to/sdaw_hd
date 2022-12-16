@@ -21,9 +21,9 @@ function logear(){
             .done(function(res){
                 console.log(res);
                     if(res.user.roles=='Admin'){
-                        window.location = "./Front/indexManager.html?nombre="+res.user.name;
+                        window.location = "./Front/indexManager.html?nombre="+res.user.name+"&imagen="+res.user.profile_photo_path;
                     }else if(res.user.roles=='Empleado'){
-                        window.location = "./Front/index.html?nombre="+res.user.name+"&id="+res.user.id;
+                        window.location = "./Front/index.html?nombre="+res.user.name+"&id="+res.user.id+"&imagen="+res.user.profile_photo_path;
                     }else{
                         alert("Usuario o contraseña incorrecta");
                     }
