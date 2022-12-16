@@ -129,13 +129,15 @@
                   <div class="row mb-3">
                       <label for="idTicket" class="col-md-4 col-lg-3 col-form-label">ID del Ticket</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="idTicket" type="text" class="form-control" id="idTicket" required>
+                        <input name="idTicket" type="text" class="form-control" oninput="consultaprod()" id="idTicket" required>
                       </div>
                   </div>
                   <div class="row mb-3">
                     <label for="articulo" class="col-md-4 col-lg-3 col-form-label">Artículo</label>
                     <div class="col-md-8 col-lg-9">
-                      <input class="form-control" id="producto" name="producto" type="text" placeholder="Nombre del artículo">
+                      <select id="producto" class="form-control">
+                          <option selected>Selecciona el articulo</option>
+                      </select>
                     </div>
                 </div>
                   <div class="row mb-3">

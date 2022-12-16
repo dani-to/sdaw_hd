@@ -1,39 +1,10 @@
 $(document).ready(function(){
     var id_cliente;
-    var seguir=0;
-    var i=0;
-    /*var settings ={ 
-            'url': "https://sdaw-production.up.railway.app/sales/show_api/2",
-            "method": "POST",
-            'dataType': "jsonp",
-            "crossDomain": true,
-            "async": true,
-            "cache": false,
-            "headers": {
-                "contentType": "application/json",
-                "accept": "application/json",
-                "Access-Control-Allow-Origin":"*"
-            }
-        }
-        $.ajax(settings).done(function(res){
-            console.log(res);
-           
-            a= count(res);
-            do{
-                if(res[i].id==$("#idTicket").val()){
-                    seguir=1;
-                }else{
-                    seguir=0; i++;
-                }
-            }while(seguir==0 && a<i);
-        })
-        .fail(function(data){
-            alert("Try again champ!");
-        });*/
+    
     $("#fmr-costumer").on("submit", function(e){
         var combo = document.getElementById("tipo");
         var selected = combo.options[combo.selectedIndex].text;
-        if($("#nombre").val()!='' && $("#lastName1").val()!='' && $("#lastName2").val()!='' && $("#eMail").val()!='' 
+        if($("#producto").val()!='Selecciona el articulo' && $("#nombre").val()!='' && $("#lastName1").val()!='' && $("#lastName2").val()!='' && $("#eMail").val()!='' 
             && $("#telephone").val()!='' && $("#about").val()!='' && selected!='Elige una opción' && $("#about").val()!='...'){
             var formData = new FormData(document.getElementById("fmr-costumer"));
             formData.append("nombre", $("#nombre").val());
@@ -478,9 +449,60 @@ $(document).ready(function(){
                     $("#folio").val("No se guardo el cliente");
                 }            
             });
-        e.preventDefault();
     }else{
-        $("#folio").val("Favor de llenar los campos");
-    }
+        $("#folio").val("Favor de llenar los campos y/o revisar que el sea correcto");
+    }e.preventDefault();
     });
 });
+
+function consultaprod(){
+    var x = document.getElementById("idTicket").value;
+    var a =0;
+    var settings ={ 
+        'url': "https://sdaw-production.up.railway.app/sales/show_api/2",
+        "method": "GET",
+        "crossDomain": true,
+        "async": true,
+        "cache": false,
+        "headers": {
+            "contentType": "application/json",
+            "accept": "application/json",
+            "Access-Control-Allow-Origin":"*"
+        }
+    }
+    $.ajax(settings).done(function(res){
+        var pa=0;
+        var seguir=0;
+        for(var i in res){
+            a++;
+        }
+        console.log(res.products);
+        let template="";
+        if($("#idTicket").val()==''){
+
+                document.getElementById('producto').style.color = 'black';
+            template +=`<option selected>Selecciona el articulo</option>`;
+        }else{
+            do{
+                if(res.products[pa].id==$("#idTicket").val()){
+                    console.log(res.products[pa].name);
+                    template += `<option value="${pa}">${res.products[pa].name}</option>`; seguir=1; pa++;
+                    console.log(seguir);
+                }else{
+                    seguir=0; pa++; console.log(seguir);
+                }
+            }while(seguir==0 && pa<a);
+            console.log(seguir);
+            if(seguir==0){
+                template+= `<option selected>El ticket no existe</option>`;
+                document.getElementById('producto').style.color = 'red';
+            }else{
+                document.getElementById('producto').style.color = 'black';
+            }
+        }
+        $("#producto").html(template);
+    })
+    .fail(function(data){
+        alert("Try again champ!");
+    });
+}
